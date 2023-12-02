@@ -14,7 +14,7 @@ export default function AddNewProject() {
                 <button className='bg-red-600 hover:bg-red-700 text-stone-50 px-2 py-1 rounded'>Cancel</button>
             </li>
             <li>
-                <button className='bg-stone-900 hover:bg-stone-950 text-stone-50 px-2 py-1 rounded'>Save</button>
+                <button className='bg-stone-800 hover:bg-stone-950 text-stone-50 px-2 py-1 rounded'>Save</button>
             </li>           
         </menu>
     </div>
