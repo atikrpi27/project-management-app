@@ -1,5 +1,5 @@
 import React from 'react'
-import No_Project from '../image/NoProject.png'
+import No_Project from '/image/NoProject.png'
 
 export default function NoProject() {
   return (
