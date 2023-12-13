@@ -1,7 +1,10 @@
 import React, { useRef } from 'react'
 import InputBox from './InputBox'
+import Modal from './Modal';
 
 export default function AddNewProject({onData}) {
+    const modal = useRef();
+
     const title = useRef();
     const description = useRef();
     const dueDate = useRef();
@@ -14,7 +17,8 @@ export default function AddNewProject({onData}) {
 
         //Validation
         if (titleData.trim()==='' || description.trim()==='' || dueDate.trim()===''){
-            //show error
+            modal.current.open();
+            return;
         }
 
         onData({
@@ -25,20 +29,28 @@ export default function AddNewProject({onData}) {
     }
 
   return (
-    <div className='w-[35rem] pt-10'>      
-        <form action="">
-            <InputBox ref={title} label="Title:"/>
-            <InputBox ref={description} label="Description: " textarea/>
-            <InputBox ref={dueDate} label="Due Date: " type="date"/>
-        </form>
-        <menu className='flex gap-3 justify-end'>
-            <li>
-                <button className='bg-red-600 hover:bg-red-700 text-stone-50 px-2 py-1 rounded'>Cancel</button>
-            </li>
-            <li>
-                <button className='bg-stone-800 hover:bg-stone-950 text-stone-50 px-2 py-1 rounded' onClick={handelData}>Save</button>
-            </li>           
-        </menu>
+    <div>
+        <Modal ref={modal} buttonCaption="Close">
+            <h2>Invalid Input</h2>
+            <p>Oops! Looks like you forgot to enter a value.</p>
+            <p>Please make sure you provide a valid value for every field.</p>
+        </Modal>
+
+        <div className='w-[35rem] pt-10'>      
+            <form action="">
+                <InputBox ref={title} label="Title:"/>
+                <InputBox ref={description} label="Description: " textarea/>
+                <InputBox ref={dueDate} label="Due Date: " type="date"/>
+            </form>
+            <menu className='flex gap-3 justify-end'>
+                <li>
+                    <button className='bg-red-600 hover:bg-red-700 text-stone-50 px-2 py-1 rounded'>Cancel</button>
+                </li>
+                <li>
+                    <button className='bg-stone-800 hover:bg-stone-950 text-stone-50 px-2 py-1 rounded' onClick={handelData}>Save</button>
+                </li>           
+            </menu>
+        </div>
     </div>
   )
 }
