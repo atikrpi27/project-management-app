@@ -37,13 +37,24 @@ function App() {
     })
   }
   console.log("All Project:",project)
+
+  const handleCancelAddProject = () => {
+    setProject(preState => {
+      return {
+        ...preState,
+        selectProject : undefined
+      }
+    })
+  }
+
+
   let content;
   if (project.selectProject === undefined) {
     content = <NoProject onHandleProject = {handleProject} />
   }
 
   else if (project.selectProject === null) {
-    content = <AddNewProject onData={handleAddProject} />
+    content = <AddNewProject onData={handleAddProject} onCancel={handleCancelAddProject} />
   }
 
   return (

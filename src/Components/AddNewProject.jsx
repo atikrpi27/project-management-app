@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import InputBox from './InputBox'
 import Modal from './Modal';
 
-export default function AddNewProject({onData}) {
+export default function AddNewProject({onData, onCancel}) {
     const modal = useRef();
 
     const title = useRef();
@@ -16,7 +16,7 @@ export default function AddNewProject({onData}) {
         // console.log({titleData, descriptionData, dueDateData})
 
         //Validation
-        if (titleData.trim()==='' || description.trim()==='' || dueDate.trim()===''){
+        if (titleData.trim()==='' || descriptionData.trim()==='' || dueDateData.trim()===''){
             modal.current.open();
             return;
         }
@@ -44,7 +44,7 @@ export default function AddNewProject({onData}) {
             </form>
             <menu className='flex gap-3 justify-end'>
                 <li>
-                    <button className='bg-red-600 hover:bg-red-700 text-stone-50 px-2 py-1 rounded'>Cancel</button>
+                    <button className='bg-red-600 hover:bg-red-700 text-stone-50 px-2 py-1 rounded' onClick={onCancel}>Cancel</button>
                 </li>
                 <li>
                     <button className='bg-stone-800 hover:bg-stone-950 text-stone-50 px-2 py-1 rounded' onClick={handelData}>Save</button>
