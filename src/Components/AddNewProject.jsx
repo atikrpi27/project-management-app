@@ -12,6 +12,11 @@ export default function AddNewProject({onData}) {
         const dueDateData = dueDate.current.value;
         // console.log({titleData, descriptionData, dueDateData})
 
+        //Validation
+        if (titleData.trim()==='' || description.trim()==='' || dueDate.trim()===''){
+            //show error
+        }
+
         onData({
             title: titleData,
             description: descriptionData,
