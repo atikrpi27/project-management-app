@@ -31,9 +31,9 @@ export default function AddNewProject({onData}) {
   return (
     <div>
         <Modal ref={modal} buttonCaption="Close">
-            <h2>Invalid Input</h2>
-            <p>Oops! Looks like you forgot to enter a value.</p>
-            <p>Please make sure you provide a valid value for every field.</p>
+            <h2 className='text-xl font-bold text-stone-950 mb-3'>Invalid Input</h2>
+            <p className='text-stone-900 mb-2'>Oops! Looks like you forgot to enter a value.</p>
+            <p className='text-stone-900'>Please make sure you provide a valid value for every field.</p>
         </Modal>
 
         <div className='w-[35rem] pt-10'>      
