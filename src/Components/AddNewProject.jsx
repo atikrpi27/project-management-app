@@ -29,20 +29,20 @@ export default function AddNewProject({onData, onCancel}) {
     }
 
   return (
-    <div>
+    <div className='w-full'>
         <Modal ref={modal} buttonCaption="Close">
             <h2 className='text-xl font-bold text-stone-950 mb-3'>Invalid Input</h2>
             <p className='text-stone-900 mb-2'>Oops! Looks like you forgot to enter a value.</p>
             <p className='text-stone-900'>Please make sure you provide a valid value for every field.</p>
         </Modal>
 
-        <div className='w-[35rem] pt-10'>      
-            <form action="">
+        <div className='text-center flex flex-col h-screen justify-center items-center'>      
+            <form action="" className='w-1/3'>
                 <InputBox ref={title} label="Title:"/>
                 <InputBox ref={description} label="Description: " textarea/>
                 <InputBox ref={dueDate} label="Due Date: " type="date"/>
             </form>
-            <menu className='flex gap-3 justify-end'>
+            <menu className='flex gap-3 justify-end w-1/3'>
                 <li>
                     <button className='bg-red-600 hover:bg-red-700 text-stone-50 px-2 py-1 rounded' onClick={onCancel}>Cancel</button>
                 </li>
